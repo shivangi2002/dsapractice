@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 struct Node{
     int val;
     Node* left;
@@ -9,25 +10,29 @@ struct Node{
     Node(int root,Node* left, Node* right): val(root),left(left),right(right){}
 
 };
-int heightt(Node* root){
+
+// name should be descriptive, should start with verb, get, set stc.
+int getTreeHeight(Node* root){
     if(root == NULL){
         return 0;
     }
-    
-    if(heightt(root->left)<heightt(root->right)){
-        return (heightt(root->right)+1);
+// for code readability, always have space between operators
+    if(getTreeHeight(root->left) < getTreeHeight(root->right)){
+        return (getTreeHeight(root->right) + 1);
     }
-    return (heightt(root->left)+1);
+    return (getTreeHeight(root->left)+1);
 }
-bool isbal(Node* root){
-    int lh;
-    int rh;
+
+// abbey genz pure naam likh
+bool isTreeBalanced(Node* root){
+    int leftHeight;
+    int rightHeight;
     if(root == NULL){
         return true;
     }
-    lh = heightt(root->left);
-    rh = heightt(root->right);
-    if(abs(lh-rh)<=1 && isbal(root->left) && isbal(root->right)){
+    leftHeight = getTreeHeight(root->left);
+    rightHeight = getTreeHeight(root->right);
+    if(abs(leftHeight-rightHeight)<=1 && isTreeBalanced(root->left) && isTreeBalanced(root->right)){
         return true;
     }
     return false;
@@ -40,9 +45,9 @@ int main(){
     root->left->left = new Node(4);
     root->left->right = new Node(5);
     root->left->left->left = new Node(8);
-    
 
-    if(isbal(root)){
+
+    if(isTreeBalanced(root)){
         cout << "tree is balanced" <<endl;
     }
     cout <<"tree is not balanced"<< endl;
