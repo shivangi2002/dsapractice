@@ -4,6 +4,8 @@ struct Node{
     int data;
     struct Node *left, *right;
 };
+
+// Why new Node, use constructir
 Node* newNode(int data){
     Node* temp = new Node;
     temp->data = data;
@@ -11,28 +13,28 @@ Node* newNode(int data){
     return temp; 
 }
 
-void printPreor(struct Node* node){
+void printPreorder( Node* node){
     if(node==NULL){
         return ;
     }
     cout << node->data <<" ";
-    printPreor(node->left);
-    printPreor(node->right);
+    printPreorder(node->left);
+    printPreorder(node->right);
 }
-void printInor(struct Node* node){
+void printInorder( Node* node){
     if(node == NULL){
         return;
     }
-    printInor(node->left);
+    printInorder(node->left);
     cout << node->data <<" ";
-    printInor(node->right);
+    printInorder(node->right);
 }
-void printPostor(struct Node* node){
+void printPostorder( Node* node){
     if(node==NULL){
         return;
     }
-    printPostor(node->left);
-    printPostor(node->right);
+    printPostorder(node->left);
+    printPostorder(node->right);
     cout << node->data <<" ";
 }
 int main(){
