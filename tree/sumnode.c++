@@ -40,7 +40,7 @@ int main(){
     x->right->right = new Node(6);
     x->right->left->left = new Node(7);
     x->right->left->right = new Node(8);
-    
+    // why?
     transform(x);
     pror(x);
     
