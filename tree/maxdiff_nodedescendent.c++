@@ -24,7 +24,7 @@ int findMaxDifference(Node* root, int &diff)
         d = root->val - min(left, right);
     }
  
-    
+// can diff be min?    
     diff = max(diff, d);
  
     
