@@ -12,14 +12,9 @@ int heightt(Node* root){
     if(root == NULL){
         return 0;
     }
-    else{
-        int lh = heightt(root->left);
-        int rh = heightt(root->right);
-        if(lh<rh){
-            return (rh+1);
-        }
-        return (lh+1);
-    }
+    int lh = heightt(root->left);
+    int rh = heightt(root->right);
+    return max(lh, rh) + 1;
 }
 int main(){
     Node* root = new Node(1);
