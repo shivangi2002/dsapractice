@@ -11,25 +11,21 @@ Node* newNode(int data){
     temp->left = temp->right = NULL;
     return temp;
 }
-int isidentical(struct Node* x, Node* y ){
+bool isidentical(struct Node* x, Node* y ){
     if(x == NULL && y == NULL ){
-        return 1;
-    }
-    else if(x == NULL && y!=NULL){
-        return 0;
-    }
-    else if(x != NULL && y == NULL){
-        return 0;
-    }
-    else{
-        if(x->data == y->data && isidentical(x->left,y->left) && isidentical(x->right,y->right)){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        return true;
     }
     
+    // Shanu same cheez repeat mat kr jo btaya ho, agar samjh nhi aaya toh let's discuss
+    if(x == NULL || y==NULL){
+        return false;
+    }
+    
+    if(x->data == y->data && isidentical(x->left,y->left) && isidentical(x->right,y->right)){
+        return true;
+    }
+    
+    return false;
 }
 int main(){
     struct Node* x = newNode(15);
