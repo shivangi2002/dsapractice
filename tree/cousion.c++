@@ -66,7 +66,7 @@ void printAllCousins(Node* root, Node* node)
 int main()
 {
     
- 
+ // wont work
     Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
