@@ -22,9 +22,6 @@ void updateLevelandParent(Node* root, Node* parent, int level, NodeInfo &x, Node
     }
  
     
-    updateLevelandParent(root->left, root, level + 1, x, y);
- 
-    
     if (root == x.node)
     {
         x.level = level;
@@ -37,8 +34,8 @@ void updateLevelandParent(Node* root, Node* parent, int level, NodeInfo &x, Node
         y.level = level;
         y.parent = parent;
     }
- 
     
+    updateLevelandParent(root->left, root, level + 1, x, y);
     updateLevelandParent(root->right, root, level + 1, x, y);
 }
  
