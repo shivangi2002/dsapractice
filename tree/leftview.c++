@@ -16,6 +16,7 @@ void leftviewfun(struct Node* root,int level,int *maxlevel){
         cout << root->val << " ";
         *maxlevel = level;
     }
+    
     leftviewfun(root->left,level+1,maxlevel);
     leftviewfun(root->right,level+1,maxlevel);
 }
