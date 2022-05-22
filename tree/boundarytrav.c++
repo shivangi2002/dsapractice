@@ -51,8 +51,7 @@ void printBounday(Node* root){
     }
     cout << root->val<<" ";
     printLeftbou(root->left);
-    printleav(root->left);
-    printleav(root->right);
+    printleav(root);
     printRightbou(root->right);
 }
 int main(){
