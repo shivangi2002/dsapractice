@@ -16,6 +16,7 @@ bool isLeaf(Node* node) {
 void printPath(vector<int> const &path)
 {
     for (int i = path.size() - 1; i > 0; i--) {
+        // why path path.at(i) and not path[i]?
         cout << path.at(i) << " —> ";
     }
  
